@@ -52,9 +52,9 @@ dependencies {
     compile 'org.parceler:parceler-api:1.1.6'
     annotationProcessor 'org.parceler:parceler:1.1.6'
 
-    compile 'com.google.firebase:firebase-core:10.2.4'
-    compile 'com.google.firebase:firebase-database:10.2.4'
-    compile 'com.google.firebase:firebase-messaging:10.2.4'
+    compile 'com.google.firebase:firebase-core:11.0.4'
+    compile 'com.google.firebase:firebase-database:11.0.4'
+    compile 'com.google.firebase:firebase-messaging:11.0.4'
 
 
 
@@ -67,3 +67,5 @@ dependencies {
     compile "com.google.dagger:dagger-android-support:$dagger_version" // if you use the support libraries
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
 }
+
+apply plugin: 'com.google.gms.google-services'
