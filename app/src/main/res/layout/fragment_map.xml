@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/cardview_light_background"
+    tools:context="com.attozoic.muzejirade.view.MainActivity">
+
+
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tbl_basic"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/app_bar"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpg_map_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbl_basic"/>
+</RelativeLayout>

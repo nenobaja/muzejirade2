@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Muzeji Rade 2.0</string>
+
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!--TRANSITIONS-->
+    <string name="post_item_transition">postItemTransition</string>
+
+</resources>
