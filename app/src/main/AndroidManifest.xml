@@ -43,6 +43,6 @@
             android:value="AIzaSyCGqWhEDSPQ5Yjo0g5U5RtcL3RXT0wyHc4" />
 
         <!--<meta-data android:name="com.google.android.gms.version"-->
-            <!--android:value="8487000" /> -->
+            <!--android:value="8487000" />-->
     </application>
 </manifest>

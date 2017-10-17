@@ -12,6 +12,12 @@ import android.widget.TextView;
 import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.model.iListItem;
 import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 import java.util.List;
@@ -23,7 +29,7 @@ import java.util.List;
 public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface {
 
     TextView content;
-//    private GoogleMap mMap;
+//   private GoogleMap mMap;
 
     private MapFragmentPresenter presenter;
     @Override
@@ -35,7 +41,7 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_pager_map, container, false);
-         content = (TextView)v.findViewById(R.id.text_map);
+         //content = (TextView)v.findViewById(R.id.text_map);
 
          presenter = MapFragmentPresenter.getInstance();
          presenter.setiMuseumsMapView(this);
