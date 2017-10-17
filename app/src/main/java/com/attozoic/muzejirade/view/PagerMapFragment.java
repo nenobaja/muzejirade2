@@ -79,8 +79,8 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng belgrade = new LatLng(44.816667, 20.466667);
+        mMap.addMarker(new MarkerOptions().position(belgrade).title("Marker in Belgrade"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(belgrade));
     }
 }
