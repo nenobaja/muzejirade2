@@ -63,7 +63,7 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //presenter.getListFromDataSource();
+        presenter.getListFromDataSource();
     }
 
     @Override

@@ -70,7 +70,7 @@ public class MapFragmentPresenter {
     }
 
     public void  getListFromDataSource(){
-        if(!downloading) {
+        if(!downloading && iMuseumsListView!=null && iMuseumsMapView != null) {
             downloading = true;
             service.getItems2(new FireBaseDatabaseListener() {
                 @Override

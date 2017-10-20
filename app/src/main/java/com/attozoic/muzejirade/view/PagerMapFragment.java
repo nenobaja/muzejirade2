@@ -86,7 +86,10 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
         LatLng belgrade = new LatLng(44.816667, 20.466667);
 
         mMap.addMarker(new MarkerOptions().position(belgrade).title("Marker in Belgrade"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(belgrade));
+
+       // mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(belgrade));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(belgrade, 10.0f));
 
     }
 
