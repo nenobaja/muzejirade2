@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
+import com.attozoic.muzejirade.model.Museum;
 import com.attozoic.muzejirade.model.iListItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,10 +19,10 @@ import java.util.List;
 
 public class PagerLsitFragmentRecyclerviewAdapter extends RecyclerView.Adapter<PagerLsitFragmentRecyclerviewAdapter.ViewHolder> {
 
-       String[] listOfMuseums;
+       List listOfMuseums;
 
     public PagerLsitFragmentRecyclerviewAdapter() {
-        this.listOfMuseums = new String[0];
+        this.listOfMuseums = new ArrayList();
     }
 
     @Override
@@ -33,17 +35,17 @@ public class PagerLsitFragmentRecyclerviewAdapter extends RecyclerView.Adapter<P
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        holder.textViewTitle.setText(listOfMuseums[position]);
+          Museum m = (Museum) listOfMuseums.get(position);
+        holder.textViewTitle.setText(m.getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return listOfMuseums.length;
+        return listOfMuseums.size();
     }
 
-    public void updateListItems(String[] listOfMuseums){
+    public void updateListItems(List listOfMuseums){
         this.listOfMuseums = listOfMuseums;
         notifyDataSetChanged();
     }

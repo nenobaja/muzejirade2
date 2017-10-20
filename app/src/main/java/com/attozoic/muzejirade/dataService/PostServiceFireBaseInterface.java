@@ -7,4 +7,5 @@ package com.attozoic.muzejirade.dataService;
 public interface PostServiceFireBaseInterface {
 
     void getItems(FireBaseDatabaseListener callback, String page);
+    void getItems2(FireBaseDatabaseListener callback);
 }

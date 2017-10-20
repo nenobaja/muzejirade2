@@ -26,7 +26,6 @@ import java.util.List;
 
 public class MapFragment extends Fragment implements TabLayout.OnTabSelectedListener {
 
-    private MapFragmentPresenter presenter;
 
     private TabLayout tabLayout;
     private ViewPager pager;

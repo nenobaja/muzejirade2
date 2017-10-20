@@ -1,5 +1,6 @@
 package com.attozoic.muzejirade.view;
 
+import com.attozoic.muzejirade.model.Museum;
 import com.attozoic.muzejirade.model.iListItem;
 
 import java.util.List;
@@ -10,5 +11,5 @@ import java.util.List;
 
 public interface ListOfMuseumsInteface {
 
-    void setItems(String[] items);
+    void setItems(List<Museum> items);
 }

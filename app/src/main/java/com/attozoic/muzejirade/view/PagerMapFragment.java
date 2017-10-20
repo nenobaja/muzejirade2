@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
 
+import com.attozoic.muzejirade.dataService.PostServiceFireBase;
+import com.attozoic.muzejirade.model.Museum;
 import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
 
 
@@ -28,7 +30,7 @@ import java.util.List;
 
 public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,OnMapReadyCallback {
 
-    TextView content;
+
    private GoogleMap mMap;
 
     private MapFragmentPresenter presenter;
@@ -43,7 +45,7 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
         View v = inflater.inflate(R.layout.fragment_pager_map, container, false);
 
 
-         presenter = MapFragmentPresenter.getInstance();
+         presenter = MapFragmentPresenter.getInstance(new PostServiceFireBase());
          presenter.setiMuseumsMapView(this);
 
 
@@ -64,10 +66,10 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
 
     }
 
-    @Override
-    public void setItems(String[] items) {
-        content.setText(items[2]);
-    }
+//    @Override
+//    public void setItems(String[] items) {
+//        content.setText(items[2]);
+//    }
 
 //    @Override
 //    public void onMapReady(GoogleMap googleMap) {
@@ -76,11 +78,23 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
+        presenter.getListFromDataSource();
 
         // Add a marker in Sydney and move the camera
         LatLng belgrade = new LatLng(44.816667, 20.466667);
+
         mMap.addMarker(new MarkerOptions().position(belgrade).title("Marker in Belgrade"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(belgrade));
+
+    }
+
+    @Override
+    public void setItems(List<Museum> items) {
+        for (Museum museum : items) {
+            LatLng museumPosition = new LatLng(museum.getLat(),museum.getLng());
+            mMap.addMarker(new MarkerOptions().position(museumPosition).title(museum.getName()));
+        }
     }
 }

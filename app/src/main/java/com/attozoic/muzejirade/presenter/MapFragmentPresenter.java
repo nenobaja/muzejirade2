@@ -3,10 +3,15 @@ package com.attozoic.muzejirade.presenter;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.attozoic.muzejirade.dataService.FireBaseDatabaseListener;
+import com.attozoic.muzejirade.dataService.PostServiceFireBaseInterface;
+import com.attozoic.muzejirade.model.Museum;
 import com.attozoic.muzejirade.model.iListItem;
 import com.attozoic.muzejirade.view.ListOfMuseumsInteface;
 import com.attozoic.muzejirade.view.MapFragment;
 import com.attozoic.muzejirade.view.MapFragmentInterface;
+
+import java.util.List;
 
 /**
  * Created by nenadicivan on 10/10/2017.
@@ -17,12 +22,20 @@ public class MapFragmentPresenter {
     ListOfMuseumsInteface iMuseumsListView;
     ListOfMuseumsInteface iMuseumsMapView;
 
+    boolean downloading = false;
+
+    private PostServiceFireBaseInterface service;
+
     private static MapFragmentPresenter instance = null;
 
-    public static MapFragmentPresenter getInstance() {
+    private MapFragmentPresenter(PostServiceFireBaseInterface service) {
+        this.service = service;
+    }
+
+    public static MapFragmentPresenter getInstance(PostServiceFireBaseInterface service) {
 
         if(instance == null) {
-            instance = new MapFragmentPresenter();
+            instance = new MapFragmentPresenter(service);
 
         }
         return instance;
@@ -57,7 +70,23 @@ public class MapFragmentPresenter {
     }
 
     public void  getListFromDataSource(){
-       iMuseumsListView.setItems(getListOfMuseums());
+        if(!downloading) {
+            downloading = true;
+            service.getItems2(new FireBaseDatabaseListener() {
+                @Override
+                public void onSuccess(List result) {
+                    iMuseumsListView.setItems(result);
+                    iMuseumsMapView.setItems(result);
+                    downloading = false;
+                }
+
+                @Override
+                public void onError(String error) {
+                    downloading = false;
+                }
+            });
+
+        }
     }
 
 

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
+import com.attozoic.muzejirade.dataService.PostServiceFireBase;
 import com.attozoic.muzejirade.model.iListItem;
 import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
 
@@ -45,7 +46,7 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
        View rootView = inflater.inflate(R.layout.fragment_pager_list,container,false);
         Log.d("merim","lista je kreiraana");
 
-        presenter = MapFragmentPresenter.getInstance();
+        presenter = MapFragmentPresenter.getInstance(new PostServiceFireBase());
         presenter.setiMuseumsListView(this);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerViewMuseums);
@@ -62,12 +63,12 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        presenter.getListFromDataSource();
+        //presenter.getListFromDataSource();
     }
 
     @Override
-    public void setItems(String[] items) {
-        Log.d("merim","lista je update");
+    public void setItems(List items) {
+
        adapter.updateListItems(items);
 
     }
