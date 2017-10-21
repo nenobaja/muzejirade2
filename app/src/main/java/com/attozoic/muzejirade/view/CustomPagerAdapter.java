@@ -30,13 +30,13 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0:
 
-                fragment = new PagerListFragment();
+                fragment = new PagerMapFragment();
 
 
 
                 break;
             case 1:
-                fragment = new PagerMapFragment();
+                fragment = new PagerListFragment();
 
 
 

@@ -32,6 +32,7 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
 
 
    private GoogleMap mMap;
+    boolean mapIsReady = false;
 
     private MapFragmentPresenter presenter;
     @Override
@@ -78,7 +79,7 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+          mapIsReady = true;
         mMap = googleMap;
         presenter.getListFromDataSource();
 
@@ -95,9 +96,42 @@ public class PagerMapFragment extends Fragment implements ListOfMuseumsInteface,
 
     @Override
     public void setItems(List<Museum> items) {
-        for (Museum museum : items) {
-            LatLng museumPosition = new LatLng(museum.getLat(),museum.getLng());
-            mMap.addMarker(new MarkerOptions().position(museumPosition).title(museum.getName()));
+        if(mapIsReady) {
+            for (Museum museum : items) {
+                LatLng museumPosition = new LatLng(museum.getLat(), museum.getLng());
+                mMap.addMarker(new MarkerOptions().position(museumPosition).title(museum.getName()));
+            }
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("derim","pmap je pauziran");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("derim","pmap je stop");
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("derim","pmap je dview");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("derim","pmap je destroy");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("derim","pmap je detach");
     }
 }

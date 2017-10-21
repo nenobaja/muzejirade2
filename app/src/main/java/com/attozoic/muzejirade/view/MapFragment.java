@@ -65,12 +65,13 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
 
 
 
+
         return rootView;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Log.d("merim","MapFragment je activity created");
+
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -92,6 +93,7 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
         CustomPagerAdapter adapter = new CustomPagerAdapter(getChildFragmentManager());
         pager.setAdapter(adapter);
 
+
     }
 
 
@@ -108,7 +110,49 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        if (pager != null) {
+            Log.d("derim","sis");
+            // before screen rotation it's better to detach pagerAdapter from the ViewPager, so
+            // pagerAdapter can remove all old fragments, so they're not reused after rotation.
+            pager.setAdapter(null);
+        }
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("derim","map je pauziran");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("derim","map je stop");
     }
 
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("derim","map je dview");
+    }
+
+    @Override
+    public void onDestroy() {
+
+        super.onDestroy();
+
+
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("derim","map je detach");
+    }
 }

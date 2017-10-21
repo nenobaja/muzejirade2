@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -39,7 +40,7 @@ import java.util.List;
  * Created by nenadicivan on 9/28/2017.
  */
 
-public class MainListFragment extends Fragment implements MainView {
+public class MainListFragment extends Fragment implements MainView,OnBackPressedListener {
 
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -48,6 +49,7 @@ public class MainListFragment extends Fragment implements MainView {
 
     private DrawerLayout navDrawer;
     private NavigationView navView;
+    MenuItem Mitem;
     private Toolbar toolbar;
 
     private ActionBarDrawerToggle toggle;
@@ -113,6 +115,7 @@ public class MainListFragment extends Fragment implements MainView {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.d("fatala","aktiviti se kreated");
+
         toolbar = (Toolbar) getActivity().findViewById(R.id.app_bar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -194,10 +197,16 @@ public class MainListFragment extends Fragment implements MainView {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                item.setChecked(true);
-                navDrawer.closeDrawers();
-                onNavigationItemClick(item.getItemId());
-                return false;
+                if(!item.isChecked()) {
+                    Mitem = item;
+                    item.setChecked(true);
+                    navDrawer.closeDrawers();
+                    onNavigationItemClick(item.getItemId());
+                    return true;
+                }else{
+                    navDrawer.closeDrawers();
+                    return false;
+                }
             }
         });
 
@@ -258,9 +267,21 @@ public class MainListFragment extends Fragment implements MainView {
                 break;
             case R.id.nav_item_prefs:
                // title.setText("Preference Activity");
+
                 Toast.makeText(getActivity(),"3" + itemId,Toast.LENGTH_LONG).show();
                 presenter.onMapClicked();
+
                 break;
         }
+    }
+
+
+    @Override
+    public void OnBackPressed() {
+       if(!navDrawer.isDrawerOpen(GravityCompat.START) && Mitem.isChecked()) {
+           Mitem.setChecked(false);
+       }else {
+           navDrawer.closeDrawers();
+       }
     }
 }

@@ -76,7 +76,7 @@ public class PostServiceFireBase implements PostServiceFireBaseInterface{
         listOfMuseums.add(new Museum(44.80511976342688, 20.470747504368546, "Muzej Nikole Tesle Beograd", "http://www.tesla-museum.org/"));
 
         listOfMuseums.add(new Museum(44.821957607188864, 20.449879148618265, "Vojni muzej Beograd", "http://www.muzej.mod.gov.rs/"));
-        listOfMuseums.add(new Museum(43.30695034041017, 20.927360733135174, "Muzej banjičkog logora", "http://www.mgb.org.rs/stalne-postavke/muzej-banjickog-logora"));
+        listOfMuseums.add(new Museum(44.30695034041017, 20.927360733135174, "Muzej banjičkog logora", "http://www.mgb.org.rs/stalne-postavke/muzej-banjickog-logora"));
         listOfMuseums.add(new Museum(44.80970700216858, 20.463814856518184, "Muzej Ive Andrića", "http://www.mgb.org.rs/stalne-postavke/muzej-ive-andrica"));
 
         listOfMuseums.add(new Museum(44.816776768315364, 20.459726365606684, "Muzej Vuka i Dositeja", "http://www.narodnimuzej.rs/o-muzeju/prostori-narodnog-muzeja/muzej-vuka-i-dositeja/"));

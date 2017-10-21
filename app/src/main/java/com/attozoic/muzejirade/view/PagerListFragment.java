@@ -72,4 +72,35 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
        adapter.updateListItems(items);
 
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("derim","list je pauziran");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("derim","list je stop");
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("derim","list je dview");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("derim","list je destroy");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d("derim","list je detach");
+    }
 }
