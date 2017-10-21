@@ -1,12 +1,9 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.museums;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,27 +13,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.attozoic.muzejirade.R;
-import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
-
-import java.util.List;
 
 /**
  * Created by nenadicivan on 10/4/2017.
  */
 
-public class MapFragment extends Fragment implements TabLayout.OnTabSelectedListener {
+public class FragmentMuseums extends Fragment implements TabLayout.OnTabSelectedListener {
 
 
     private TabLayout tabLayout;
     private ViewPager pager;
 
-    private static MapFragment instance = null;
+    private static FragmentMuseums instance = null;
 
-    public static MapFragment getInstance() {
-        Log.d("merim","zove konstruktor");
+    public static FragmentMuseums getInstance() {
         if(instance == null) {
-            instance = new MapFragment();
-            Log.d("merim","zove novi");
+            instance = new FragmentMuseums();
         }
         return instance;
     }
@@ -49,22 +41,15 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d("merim","3 createvju");
 
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
 
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setElevation(0f);
-
         tabLayout = (TabLayout) rootView.findViewById(R.id.tbl_basic);
         pager = (ViewPager) rootView.findViewById(R.id.vpg_map_list);
 
-
         setUpPagerAndTabs();
-
-
-
 
         return rootView;
     }
@@ -76,13 +61,7 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
     }
 
     private void setUpPagerAndTabs() {
-        tabLayout.addTab(
-                //ovde se moze inace postaviti i custom layout ako zelimo!!!
-                tabLayout.newTab().setText("Mapa")
-        );
-        tabLayout.addTab(
-                tabLayout.newTab().setText("Lista")
-        );
+        tabLayout.setupWithViewPager(pager);
 
         tabLayout.setTabTextColors(ContextCompat.getColor(getActivity(), android.R.color.white),
                 ContextCompat.getColor(getActivity(), R.color.colorAccent));
@@ -90,12 +69,9 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
 
         tabLayout.addOnTabSelectedListener(this);
 
-        CustomPagerAdapter adapter = new CustomPagerAdapter(getChildFragmentManager());
+        PagerAdapterMuseums adapter = new PagerAdapterMuseums(getChildFragmentManager());
         pager.setAdapter(adapter);
-
-
     }
-
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
@@ -121,38 +97,5 @@ public class MapFragment extends Fragment implements TabLayout.OnTabSelectedList
             pager.setAdapter(null);
         }
         super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("derim","map je pauziran");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d("derim","map je stop");
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("derim","map je dview");
-    }
-
-    @Override
-    public void onDestroy() {
-
-        super.onDestroy();
-
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("derim","map je detach");
     }
 }

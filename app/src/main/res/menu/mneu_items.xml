@@ -4,23 +4,15 @@
         android:id="@+id/group_one"
         android:checkableBehavior="single">
         <item
+            android:checked="true"
             android:id="@+id/nav_item_dash"
             android:icon="@android:drawable/alert_dark_frame"
-            android:title="Dashboard" />
+            android:title="Posts" />
 
-        <item
-            android:id="@+id/nav_item_cal"
-            android:title="Calendar"
-            android:icon="@android:drawable/ic_menu_my_calendar"/>
-
-    </group>
-    <group
-        android:id="@+id/group_two"
-        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_item_prefs"
             android:icon="@drawable/google_maps"
 
-            android:title="Mapa" />
+            android:title="Museums" />
     </group>
 </menu>

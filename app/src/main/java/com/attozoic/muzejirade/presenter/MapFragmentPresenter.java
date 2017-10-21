@@ -1,15 +1,8 @@
 package com.attozoic.muzejirade.presenter;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import com.attozoic.muzejirade.dataService.FireBaseDatabaseListener;
 import com.attozoic.muzejirade.dataService.PostServiceFireBaseInterface;
-import com.attozoic.muzejirade.model.Museum;
-import com.attozoic.muzejirade.model.iListItem;
-import com.attozoic.muzejirade.view.ListOfMuseumsInteface;
-import com.attozoic.muzejirade.view.MapFragment;
-import com.attozoic.muzejirade.view.MapFragmentInterface;
+import com.attozoic.muzejirade.ui.museums.ListOfMuseumsInteface;
 
 import java.util.List;
 

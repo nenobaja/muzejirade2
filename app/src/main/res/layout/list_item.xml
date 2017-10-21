@@ -24,7 +24,7 @@
             android:id="@+id/relativeLayoutPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <com.attozoic.muzejirade.view.SquareImageView
+            <com.attozoic.muzejirade.ui.views.SquareImageView
                 android:id="@+id/imageView"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"

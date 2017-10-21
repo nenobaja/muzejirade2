@@ -1,4 +1,4 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.museums;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.model.Museum;
-import com.attozoic.muzejirade.model.iListItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +16,11 @@ import java.util.List;
  * Created by nenadicivan on 10/11/2017.
  */
 
-public class PagerLsitFragmentRecyclerviewAdapter extends RecyclerView.Adapter<PagerLsitFragmentRecyclerviewAdapter.ViewHolder> {
+public class AdapterMuseumsList extends RecyclerView.Adapter<AdapterMuseumsList.ViewHolder> {
 
        List listOfMuseums;
 
-    public PagerLsitFragmentRecyclerviewAdapter() {
+    public AdapterMuseumsList() {
         this.listOfMuseums = new ArrayList();
     }
 
@@ -30,7 +29,7 @@ public class PagerLsitFragmentRecyclerviewAdapter extends RecyclerView.Adapter<P
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_of_museums_item,parent,false);
 
-        return new PagerLsitFragmentRecyclerviewAdapter.ViewHolder(v);
+        return new AdapterMuseumsList.ViewHolder(v);
     }
 
     @Override

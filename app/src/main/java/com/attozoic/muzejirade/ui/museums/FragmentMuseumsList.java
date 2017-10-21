@@ -1,23 +1,19 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.museums;
 
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.dataService.PostServiceFireBase;
-import com.attozoic.muzejirade.model.iListItem;
 import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
 
 import java.util.List;
@@ -26,19 +22,13 @@ import java.util.List;
  * Created by nenadicivan on 10/6/2017.
  */
 
-public class PagerListFragment extends Fragment implements ListOfMuseumsInteface {
+public class FragmentMuseumsList extends Fragment implements ListOfMuseumsInteface {
 
     private RecyclerView recyclerView;
 
-    private PagerLsitFragmentRecyclerviewAdapter adapter;
+    private AdapterMuseumsList adapter;
 
     private MapFragmentPresenter presenter;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.d("merim","lista je create");
-        super.onCreate(savedInstanceState);
-    }
 
     @Nullable
     @Override
@@ -52,7 +42,7 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerViewMuseums);
         recyclerView.setHasFixedSize(true);
 
-        adapter = new PagerLsitFragmentRecyclerviewAdapter();
+        adapter = new AdapterMuseumsList();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -71,36 +61,5 @@ public class PagerListFragment extends Fragment implements ListOfMuseumsInteface
 
        adapter.updateListItems(items);
 
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("derim","list je pauziran");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d("derim","list je stop");
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("derim","list je dview");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("derim","list je destroy");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("derim","list je detach");
     }
 }

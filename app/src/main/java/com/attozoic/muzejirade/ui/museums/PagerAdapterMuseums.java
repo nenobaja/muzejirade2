@@ -1,25 +1,34 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.museums;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-
-import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
 
 /**
  * Created by nenadicivan on 10/14/2017.
  */
 
-public class CustomPagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapterMuseums extends FragmentPagerAdapter {
 
 
 
-    public CustomPagerAdapter(FragmentManager fm) {
+    public PagerAdapterMuseums(FragmentManager fm) {
 
         super(fm);
 
 
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "LIST";
+            case 1:
+                return "MAP";
+            default:
+                return super.getPageTitle(position);
+        }
     }
 
     @Override
@@ -30,15 +39,15 @@ public class CustomPagerAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0:
 
-                fragment = new PagerMapFragment();
 
+                fragment = new FragmentMuseumsList();
 
 
                 break;
             case 1:
-                fragment = new PagerListFragment();
 
 
+                fragment = new FragmentMuseumsMap();
 
 
                 break;

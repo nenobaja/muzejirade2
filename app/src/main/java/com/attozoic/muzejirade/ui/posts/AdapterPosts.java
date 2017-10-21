@@ -1,4 +1,4 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.posts;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,7 +22,7 @@ import java.util.List;
  * Created by nenadicivan on 9/12/2017.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//klasa adapter
+public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.ViewHolder> {//klasa adapter
 
     private List<iListItem> listItems;
     private OnRecyclerItemClickListener itemClickListener;
@@ -31,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {//kla
         return listItems;
     }
 
-    public MyAdapter(OnRecyclerItemClickListener lisener) {
+    public AdapterPosts(OnRecyclerItemClickListener lisener) {
         this.listItems = new ArrayList<>();
         this.itemClickListener = lisener;
 

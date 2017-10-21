@@ -1,4 +1,4 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.views;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

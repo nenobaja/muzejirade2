@@ -1,7 +1,6 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.museums;
 
 import com.attozoic.muzejirade.model.Museum;
-import com.attozoic.muzejirade.model.iListItem;
 
 import java.util.List;
 

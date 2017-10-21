@@ -1,14 +1,12 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.details;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.TextView;
 
 import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.model.Post;
@@ -49,6 +47,7 @@ public class DetailsFragment extends Fragment{
 
           vebView = (WebView) rootView.findViewById(R.id.webView_content);
         vebView.loadUrl(post.getContent());
+
         return  rootView;
     }
 }

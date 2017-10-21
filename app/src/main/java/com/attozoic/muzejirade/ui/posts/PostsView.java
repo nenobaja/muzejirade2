@@ -1,4 +1,4 @@
-package com.attozoic.muzejirade.view;
+package com.attozoic.muzejirade.ui.posts;
 
 
 
@@ -10,7 +10,7 @@ import java.util.List;
  * Created by nenadicivan on 9/29/2017.
  */
 
-public interface MainView {
+public interface PostsView {
 
     void showProgress();
 
