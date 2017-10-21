@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.nvd_act_main);
 
-
+        if(savedInstanceState == null) {
             MainListFragment fragment = new MainListFragment();
-             onBackPressedListener = fragment;
+            onBackPressedListener = fragment;
             getSupportFragmentManager().beginTransaction().add(R.id.frame_lay, fragment).commit();
+        }
 
     }
 
