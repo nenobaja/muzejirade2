@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
 
+    MenuItem mitem;
+    MenuItem selectedMenuItem;
+
     private PresenterMain presenter;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +82,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(!item.isChecked()) {
+                    mitem = item;
                     item.setChecked(true);
                     drawerLayout.closeDrawer(GravityCompat.START);
-                    presenter.onNavItem(item.getItemId());
+//                    presenter.onNavItem(item.getItemId());
                     return true;
                 } else {
                     drawerLayout.closeDrawers();
@@ -100,6 +104,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
             public void onDrawerClosed(View drawer) {
                 super.onDrawerClosed(drawer);
+
+                if(mitem != null && selectedMenuItem == null) {
+                    selectedMenuItem = mitem;
+                    presenter.onNavItem(mitem.getItemId());
+                }
+                if(mitem != null && mitem != selectedMenuItem){
+                    selectedMenuItem = mitem;
+                    presenter.onNavItem(mitem.getItemId());
+                }
                 invalidateOptionsMenu();
             }
 
@@ -130,12 +143,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void open(Fragment fragment) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_lay, fragment).commit();
-            }
-        }, 250);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lay, fragment).commit();
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                getSupportFragmentManager().beginTransaction().replace(R.id.frame_lay, fragment).commit();
+//            }
+//        }, 250);
 
 
 
