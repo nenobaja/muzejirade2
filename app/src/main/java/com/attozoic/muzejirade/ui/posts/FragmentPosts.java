@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.attozoic.muzejirade.R;
@@ -35,6 +36,7 @@ public class FragmentPosts extends Fragment implements PostsView {
     private SwipeRefreshLayout swipeRefreshLayout;
     private AdapterPosts adapter;
     ProgressDialog progressDialog;
+
 
     private boolean isLoading;
     private int visibleThreshold = 3;
@@ -88,7 +90,8 @@ public class FragmentPosts extends Fragment implements PostsView {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        progressDialog = new ProgressDialog(getActivity());
+       progressDialog = new ProgressDialog(getActivity());
+
         presenter.onResume(savedInstanceState, false, null);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -125,11 +128,13 @@ public class FragmentPosts extends Fragment implements PostsView {
     public void showProgress() {
         progressDialog.setMessage("Loading data...");
         progressDialog.show();
+
     }
 
     @Override
     public void hideProgress() {
-        progressDialog.dismiss();
+       progressDialog.dismiss();
+
         swipeRefreshLayout.setRefreshing(false);
         isLoading = false;
     }
