@@ -1,8 +1,16 @@
 package com.attozoic.muzejirade.presenter;
 
+import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.dataService.FireBaseDatabaseListener;
 import com.attozoic.muzejirade.dataService.PostServiceFireBaseInterface;
+import com.attozoic.muzejirade.model.Museum;
+import com.attozoic.muzejirade.model.Post;
+import com.attozoic.muzejirade.model.iListItem;
+import com.attozoic.muzejirade.ui.details.DetailsFragment;
+import com.attozoic.muzejirade.ui.museums.FragmentMuseumsList;
+import com.attozoic.muzejirade.ui.museums.FragmentMuseumsListDetails;
 import com.attozoic.muzejirade.ui.museums.ListOfMuseumsInteface;
+import com.attozoic.muzejirade.ui.posts.FragmentPosts;
 
 import java.util.List;
 
@@ -83,5 +91,18 @@ public class MapFragmentPresenter {
     }
 
 
+     public void onItemClicked(iListItem item) {
+        if (iMuseumsListView != null) {
+            Museum museum = (Museum) item;
+//            iMuseumsListView.showMessage("kliknuo si na " + post.getTitle());
 
+            FragmentMuseumsListDetails fragment = FragmentMuseumsListDetails.getInstance(museum);
+
+            ((FragmentMuseumsList) iMuseumsListView).getChildFragmentManager().beginTransaction().replace(R.id.frame_lay1, fragment).commit();
+        }
+    }
+//pstalo od straog pogledati
+//    @Override public void onDestroy() {
+//        postsView = null;
+//    }
 }

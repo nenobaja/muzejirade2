@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 
 import com.attozoic.muzejirade.R;
 import com.attozoic.muzejirade.dataService.PostServiceFireBase;
+import com.attozoic.muzejirade.model.iListItem;
 import com.attozoic.muzejirade.presenter.MapFragmentPresenter;
+import com.attozoic.muzejirade.utils.OnRecyclerItemClickListener;
 
 import java.util.List;
 
@@ -42,7 +44,12 @@ public class FragmentMuseumsList extends Fragment implements ListOfMuseumsIntefa
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerViewMuseums);
         recyclerView.setHasFixedSize(true);
 
-        adapter = new AdapterMuseumsList();
+        adapter = new AdapterMuseumsList(new OnRecyclerItemClickListener() {
+            @Override
+            public void onItemClick(iListItem item) {
+                presenter.onItemClicked(item);
+            }
+        });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
