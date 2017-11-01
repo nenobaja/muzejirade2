@@ -97,8 +97,8 @@ public class MapFragmentPresenter {
 //            iMuseumsListView.showMessage("kliknuo si na " + post.getTitle());
 
             FragmentMuseumsListDetails fragment = FragmentMuseumsListDetails.getInstance(museum);
-
-            ((FragmentMuseumsList) iMuseumsListView).getChildFragmentManager().beginTransaction().replace(R.id.frame_lay1, fragment).commit();
+            ((FragmentMuseumsList) iMuseumsListView).getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frame_lay, fragment).addToBackStack(null).commit();
+            //((FragmentMuseumsList) iMuseumsListView).getChildFragmentManager().beginTransaction().replace(R.id.frame_lay1, fragment).commit();
         }
     }
 //pstalo od straog pogledati
