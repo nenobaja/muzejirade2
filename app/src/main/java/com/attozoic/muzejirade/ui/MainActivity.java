@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         presenter = new PresenterMainImpl(this);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
+        toolbar.setTitle(R.string.title);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
             }
         };
         //metod za animaciju!!
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorAccent));
         drawerLayout.addDrawerListener(toggle);
     }
 

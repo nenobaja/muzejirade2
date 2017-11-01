@@ -2,10 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
     android:id="@+id/relativeLayoutMuseumPost">
 
     <TextView
         android:id="@+id/museum_item_name"
+        android:textColor="@color/cardview_light_background"
+
+        android:textAllCaps="true"
+        android:textStyle="bold"
+
+        android:textSize="14sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+
+
+        android:gravity="center_horizontal"
+
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:text="blaaaaaaaaaaaaa"/>

@@ -4,6 +4,7 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="title">Muzeji Rade</string>
 
     <!--TRANSITIONS-->
     <string name="post_item_transition">postItemTransition</string>
