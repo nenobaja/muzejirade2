@@ -51,7 +51,7 @@ public class DetailsFragment extends Fragment{
               Bundle data = this.getArguments();
              Post post = Parcels.unwrap(data.getParcelable("post"));
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading data...");
+        progressDialog.setMessage("Učitavanje...");
           progressDialog.show();
 
         vebView = (WebView) rootView.findViewById(R.id.webView_content);

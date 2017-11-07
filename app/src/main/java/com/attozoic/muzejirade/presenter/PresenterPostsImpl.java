@@ -75,7 +75,7 @@ public class PresenterPostsImpl implements PresenterPosts {
     @Override public void onItemClicked(iListItem item) {
         if (postsView != null) {
             Post post = (Post) item;
-           postsView.showMessage("kliknuo si na " + post.getTitle());
+           //postsView.showMessage("kliknuo si na " + post.getTitle());
 
             DetailsFragment fragment = DetailsFragment.getInstance(post);
 

@@ -110,7 +110,7 @@ public class FragmentPosts extends Fragment implements PostsView {
                 lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
                 if (!isLoading && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
 
-                    Toast.makeText(getActivity(), "radiiiii " + totalItemCount + " po" + lastVisibleItem, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity(), "radiiiii " + totalItemCount + " po" + lastVisibleItem, Toast.LENGTH_LONG).show();
                     Post post  = (Post) adapter.getListItems().get(totalItemCount-1);
 
                     presenter.onResume(savedInstanceState, false, post.getCreatedAt());
@@ -129,7 +129,7 @@ public class FragmentPosts extends Fragment implements PostsView {
 
     @Override
     public void showProgress() {
-        progressDialog.setMessage("Loading data...");
+        progressDialog.setMessage("Učitavanje...");
         progressDialog.show();
 
     }
@@ -154,6 +154,6 @@ public class FragmentPosts extends Fragment implements PostsView {
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
 }

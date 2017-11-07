@@ -49,7 +49,7 @@ public class FragmentMuseumsListDetails extends Fragment{
         Bundle data = this.getArguments();
         Museum museum = Parcels.unwrap(data.getParcelable("museum"));
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading data...");
+        progressDialog.setMessage("Učitavanje...");
         progressDialog.show();
 
         vebView = (WebView) rootView.findViewById(R.id.webView_content_museums);
