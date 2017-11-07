@@ -23,10 +23,10 @@ public class PagerAdapterMuseums extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "MAP";
+                return "MAPA";
 
             case 1:
-                return "LIST";
+                return "LISTA";
 
             default:
                 return super.getPageTitle(position);

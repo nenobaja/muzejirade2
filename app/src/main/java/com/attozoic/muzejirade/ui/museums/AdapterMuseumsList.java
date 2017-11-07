@@ -41,7 +41,7 @@ public class AdapterMuseumsList extends RecyclerView.Adapter<AdapterMuseumsList.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
           Museum museum = (Museum) listOfMuseums.get(position);
-        holder.textViewTitle.setText(museum.getName() + " >>");
+        holder.textViewTitle.setText(museum.getName());
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

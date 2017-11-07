@@ -9,8 +9,7 @@
         android:id="@+id/museum_item_name"
         android:textColor="@color/cardview_light_background"
 
-        android:textAllCaps="true"
-        android:textStyle="bold"
+
 
         android:textSize="14sp"
         android:paddingLeft="5dp"
@@ -19,7 +18,8 @@
         android:paddingTop="5dp"
 
 
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
 
         android:layout_width="match_parent"
         android:layout_height="80dp"

@@ -7,12 +7,12 @@
             android:checked="true"
             android:id="@+id/nav_item_dash"
             android:icon="@android:drawable/alert_dark_frame"
-            android:title="Posts" />
+            android:title="Vesti" />
 
         <item
             android:id="@+id/nav_item_prefs"
             android:icon="@drawable/google_maps"
 
-            android:title="Museums" />
+            android:title="Mapa muzeja u Beogradu" />
     </group>
 </menu>

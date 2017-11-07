@@ -90,12 +90,7 @@ public class FragmentMuseums extends Fragment implements TabLayout.OnTabSelected
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        if (pager != null) {
-            Log.d("derim","sis");
-            // before screen rotation it's better to detach pagerAdapter from the ViewPager, so
-            // pagerAdapter can remove all old fragments, so they're not reused after rotation.
-            pager.setAdapter(null);
-        }
+
         super.onSaveInstanceState(savedInstanceState);
     }
 }
